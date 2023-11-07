@@ -1,2 +1,2 @@
 # Projectschool
-This file will be containing
+This file will be containing the fullstack of The Rural education project.
