@@ -19,6 +19,8 @@ var db = mongoose.connection;
 app.get('/Teacher',(req,res)=>{
     res.sendFile(__dirname+'/frontend/login.html')
 })
+
+//Teacher Signup
 app.post("/TeacherSignup",async (req,res)=>{
   try{
     const check = await db.collection("teachers").findOne({usename:req.body.username});
@@ -46,7 +48,7 @@ app.post("/TeacherSignup",async (req,res)=>{
     res.send("err occured try again");
   }
 })
-
+//Teacher Login
 app.post("/TeacherLogin",async (req,res) =>{
   try{
     const check = await db.collection("teachers").findOne({usename:req.body.username});
@@ -68,7 +70,7 @@ app.post("/TeacherLogin",async (req,res) =>{
 app.get('/Student',(req,res)=>{
   res.sendFile(__dirname+'/frontend/stud.html')
 })
-
+//Student signup
 app.post("/StudentSignup",async (req,res)=>{
   try{
     const check = await db.collection("students").findOne({usename:req.body.username});
@@ -96,7 +98,7 @@ app.post("/StudentSignup",async (req,res)=>{
     res.send("err occured try again");
   }
 })
-
+//Login for Studetpanal
 app.post("/StudentLogin",async (req,res) =>{
   try{
     const check = await db.collection("students").findOne({usename:req.body.username});
@@ -114,6 +116,42 @@ app.post("/StudentLogin",async (req,res) =>{
     res.send("err occured try again");
   }
 })
+//Jquiry
+//check username for Teachers
+app.get('/checkTeacher', (req, res) => {
+  const name = req.query.name;
+  db.collection("teachers").findOne({usename: name }, (err, existingUser) => {
+    if (err) {
+        console.error('Error querying the database:', err);
+        client.close();
+        return res.status(500).json({ error: 'Database error' });
+    }
+
+    if (existingUser) {
+        res.json({ exists: true });
+    } else {
+        res.json({ exists: false });
+    }
+})});
+//check username for student
+app.get('/checkStudent', (req, res) => {
+  const name = req.query.name;
+  db.collection("students").findOne({usename: name }, (err, existingUser) => {
+    if (err) {
+        console.error('Error querying the database:', err);
+        client.close();
+        return res.status(500).json({ error: 'Database error' });
+    }
+
+    if (existingUser) {
+        res.json({ exists: true });
+    } else {
+        res.json({ exists: false });
+    }
+  })
+});
+
+//Error page for unregistered links
 
 app.get("*",(req,res)=>{
   res.sendFile(__dirname + "/frontend/404.html");
