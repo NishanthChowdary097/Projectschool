@@ -20,7 +20,7 @@ user.addEventListener('input', () => {
 	    if (data.exists) {
 		    result.innerHTML= 'Username already in use';
     	} else {
-	    	result.textHTML = '';
+	    	result.innerHTML = '';
 	    }
     })
     .catch(error => console.error(error));
