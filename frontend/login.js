@@ -11,13 +11,15 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
-fetch(`/checkTeacher?name=${user}`)
-.then(response => response.json())
-.then(data => {
-	if (data.exists) {
-		errorDiv.textContent = 'Username already in use';
-	} else {
-		errorDiv.textContent = '';
-	}
-})
-.catch(error => console.error(error));
+user.addEventListener('input', () => {
+    fetch(`/checkStudent?name=${user}`)
+        .then(response => response.json())
+        .then(data => {
+	    if (data.exists) {
+		    result.innerHTML= 'Username already in use';
+    	} else {
+	    	result.innerHTML = '';
+	    }
+    })
+    .catch(error => console.error(error));
+});
