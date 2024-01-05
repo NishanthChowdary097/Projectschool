@@ -2,7 +2,6 @@ const express = require("express")
 const mongoose = require("mongoose")
 const bcrypt = require('bcrypt')
 const fs=require('fs')
-const async = require("hbs/lib/async")
 
 const app = express()
 

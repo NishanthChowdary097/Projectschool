@@ -1,0 +1,106 @@
+body{
+    display:flex;
+    margin: 0%;    
+    padding: 0%;
+    width: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+#vertical-navbar{
+    min-width: 15vw;
+
+    display: flex;
+    flex-direction: column;
+}
+#vertical-navbar #btn1{
+    background-color: rgb(60, 255, 0);
+}
+#vertical-navbar #btn2{
+    background-color: pink;
+}
+#btn1,#btn2,#btn3,#btn4,#btn5{
+    flex: auto;
+    margin:10px;
+    border-radius: 25px;
+}
+
+
+#nav-frame{
+    background-color: blue;
+    min-width: 85vw;
+
+    display: flex;
+    flex-direction: column;
+}
+#topframe{
+    background-color: pink;
+    flex:1;
+
+    display: flex;
+    flex-direction: row;
+    margin:10px;
+    border-radius: 25px;
+}
+#quote{
+    flex: 1;
+    margin:10px;
+    border-radius: 25px;
+    background-color: blue;
+}
+#pAg{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    border-radius: 25px;
+    background-color: blueviolet;
+}
+#greet{
+    flex:1;
+    margin:10px;
+    border-radius: 25px;
+    background-color: aqua;
+}
+#profile{
+    flex: 2;
+    margin:10px;
+    border-radius: 25px;
+    background-color: blue;
+    
+    display: flex;
+    flex-direction: row;
+}
+#profile-pic{
+    flex:1;
+    background-color: beige;
+}
+#profile-details{
+    flex: 2;
+    background-color: azure;
+}
+
+#downframe{
+    background-color: red;
+    flex:1;
+
+    display: flex;
+}
+#subs,#updats{
+    flex: 1;
+    margin:10px;
+    border-radius: 25px;
+    background-color: burlywood;
+}
+
+#maped-subs{
+    background-color: wheat;
+    flex:1;
+    margin:10px;
+    border-radius: 25px;
+}
+#sub-content{
+    background-color: red;
+    flex: 10;
+    margin:10px;
+    border-radius: 25px;
+}
